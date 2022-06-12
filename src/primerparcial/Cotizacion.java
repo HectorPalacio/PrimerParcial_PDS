@@ -66,7 +66,7 @@ public class Cotizacion {
     public static void desplegarGuitarras(){
         
         FabricaInstrumento fabricaInstrumento = new FabricaInstrumento();
-        //Usamos la fábrica
+        //Usamos la fábrica y abstracción
         Instrumento instrumento = fabricaInstrumento.getInstrumento("GUITARRA");
         Random random = new Random();
         int rnd = random.nextInt(3 + 1) + 1;
@@ -190,6 +190,7 @@ public class Cotizacion {
         }else{
             desplegarGuitarras();
         }*/
+        HacerCotizacion();
     }
     
     public static void desplegarBajos(){
@@ -267,6 +268,8 @@ public class Cotizacion {
         System.out.println("Total del pedido:");
         int costoPedido = instrumento.Precio + instRnd.Precio + afinador.Precio;
         System.out.println(costoPedido);
+        
+        HacerCotizacion();
     }
     
     public static void desplegarPianos(){
@@ -344,6 +347,8 @@ public class Cotizacion {
         System.out.println("Total del pedido:");
         int costoPedido = instrumento.Precio + instRnd.Precio + afinador.Precio;
         System.out.println(costoPedido);
+        
+        HacerCotizacion();
     }
     
     public static void FinalizarPedido(){
