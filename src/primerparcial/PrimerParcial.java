@@ -2,11 +2,13 @@ package primerparcial;
 
 import entidades.Cliente;
 import java.util.Scanner;
+import static primerparcial.Cotizacion.RealizarPedido;
+import static primerparcial.OrdenDeCompra.generarOrdenDeCompra;
 
 public class PrimerParcial {
-
+    public static Cliente cliente;
     public static void main(String[] args) {
-        Cliente cliente = new Cliente();
+        cliente = new Cliente();
         
         Scanner leerId = new Scanner(System.in);
         Scanner leerNombre = new Scanner(System.in);
@@ -36,10 +38,10 @@ public class PrimerParcial {
                 Cotizacion.HacerCotizacion();
             }
             case 2 -> {
-                //Pagar orden de compra
+                generarOrdenDeCompra(cliente);
             }
             case 3 -> {
-                //Realizar pedido
+                RealizarPedido();
             }
             default -> {
                 //F
