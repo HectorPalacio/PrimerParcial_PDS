@@ -6,7 +6,7 @@ import entidades.Instrumento;
 import entidades.Piano;
 
 public class FabricaInstrumento {
-    public Instrumento getInstrumento(String tipo){
+    public static Instrumento getInstrumento(String tipo){
         if(tipo.toUpperCase().equals("GUITARRA")){
             return new Guitarra();
         }else if(tipo.toUpperCase().equals("BAJO")){

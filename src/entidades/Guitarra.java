@@ -1,10 +1,14 @@
 package entidades;
 
-public class Guitarra extends Instrumento {
+import java.util.List;
+
+public class Guitarra implements Instrumento {
+        
+    public String Id;
+    public List<Accesorio> ListaAccesorios;
+    public String tipo;
     public int Precio;
     
-    @Override
     public void afinar(){}
-    @Override
     public void interpretar(){}
 }
