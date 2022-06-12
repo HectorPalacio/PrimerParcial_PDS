@@ -1,14 +1,14 @@
 package entidades;
 
-import java.util.List;
-
-public class Piano implements Instrumento{
-    public String Id;
-    public List<Accesorio> ListaAccesorios;
-    public String tipo;
-    public int Precio;
+//Uso de herencia para utilizar la abstracción también
+public class Piano extends Instrumento{
     
+    public Piano(){
+        Precio = 10000;
+    }
+    
+    @Override
     public void afinar(){}
-    
+    @Override
     public void interpretar(){}
 }

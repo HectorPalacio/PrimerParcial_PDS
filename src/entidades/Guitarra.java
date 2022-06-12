@@ -1,14 +1,14 @@
 package entidades;
 
-import java.util.List;
-
-public class Guitarra implements Instrumento {
-        
-    public String Id;
-    public List<Accesorio> ListaAccesorios;
-    public String tipo;
-    public int Precio;
+//Uso de herencia para utilizar la abstracción también
+public class Guitarra extends Instrumento {
     
+    public Guitarra(){
+        Precio = 2500;
+    }
+    
+    @Override
     public void afinar(){}
+    @Override
     public void interpretar(){}
 }

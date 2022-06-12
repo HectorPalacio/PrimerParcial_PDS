@@ -1,5 +1,6 @@
 package entidades;
 
+//Uso de herencia
 public class Calcomania extends Accesorio{
     public int Precio;
     private static Calcomania objeto = null;

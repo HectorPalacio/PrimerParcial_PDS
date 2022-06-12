@@ -1,9 +1,13 @@
 package primerparcial;
 
+import entidades.Accesorio;
+import entidades.Afinador;
 import entidades.Guitarra;
 import entidades.Instrumento;
 import entidades.Pedido;
 import fabricas.FabricaInstrumento;
+import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 import static primerparcial.PrimerParcial.Menu;
 
@@ -60,6 +64,44 @@ public class Cotizacion {
     
     public static void desplegarGuitarras(){
         
+        FabricaInstrumento fabricaInstrumento = new FabricaInstrumento();
+        
+        //Usamos la fábrica
+        Instrumento instrumento = fabricaInstrumento.getInstrumento("GUITARRA");
+        
+        pedido.ListaInstrumentos.add(instrumento);
+        
+        Random random = new Random();
+        int rnd = random.nextInt(3 + 1) + 1;
+        
+        if(rnd == 1){
+            Instrumento instRnd = fabricaInstrumento.getInstrumento("GUITARRA");
+            //Uso de singleton
+            Afinador afinador1 = Afinador.getInstancia();
+            Afinador afinador2 = Afinador.getInstancia();
+            Afinador afinador3 = Afinador.getInstancia();
+            
+            if(afinador1 == afinador2 && afinador2 == afinador3){
+                System.out.println("No Singleton");
+            }else{
+                instRnd.ListaAccesorios.add(afinador1);
+            }
+            pedido.ListaInstrumentos.add(instRnd);
+        }else if(rnd == 2){
+            Instrumento instRnd = fabricaInstrumento.getInstrumento("BAJO");
+            pedido.ListaInstrumentos.add(instRnd);
+        }else{
+            Instrumento instRnd = fabricaInstrumento.getInstrumento("PIANO");
+            pedido.ListaInstrumentos.add(instRnd);
+    }
+        System.out.println("Total del pedido:");
+        
+        
+        
+        
+        
+        
+        
         int precioGuitarraElectrica = 2500;
         int precioGuitarraAcustica = 2000;
         
@@ -82,11 +124,16 @@ public class Cotizacion {
             
             cantidad = leerCantidad.nextInt();
             
+            FabricaInstrumento fabrica = new FabricaInstrumento();
+            
             for (int i = 0; i < cantidad; i++) {
-                Guitarra instrumento = (Guitarra) FabricaInstrumento.getInstrumento("GUITARRA");
+                Instrumento instrumentoTemp = (Guitarra) fabrica.getInstrumento("GUITARRA");
                 instrumento.Id = String.valueOf(i);
                 instrumento.tipo = "eléctrica";
                 instrumento.Precio = precioGuitarraElectrica;
+                
+                
+                //instrumento.ListaAccesorios = InvocarAccesorios();
                 
                 pedido.ListaInstrumentos.add(instrumento);
             }
@@ -112,4 +159,22 @@ public class Cotizacion {
     public static void FinalizarPedido(){
         
     }
+    
+    /*public static List<Accesorio> InvocarAccesorios(){
+        System.out.println("¿Desea agregar accesorios a este instrumento?");
+        System.out.println("1) Sí");
+        System.out.println("2) No");
+        
+        Scanner leer = new Scanner(System.in);
+        int opcion = 0;
+        
+        opcion = leer.nextInt();
+        
+        if(opcion == 1){
+            System.out.println("¿Qué accesorio desea agregar?");
+            
+        }else{
+            
+        }
+    }*/
 }
